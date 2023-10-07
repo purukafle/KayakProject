@@ -44,6 +44,21 @@ public class SearchFlightsSteps{
 	public void select_trip_option() {
 	    searchflight.selectFlightOption("");
 	}
+	@Then("select Trip {string}")
+	public void select_trip(String option)  {
+	    searchflight.roundTripFrom(option);
+	}
+
+	@Then("Select Baltimore, Maryland, United States \\(BWI) option")
+	public void select_baltimore_maryland_united_states_bwi_option(String from) {
+		searchflight.roundTripFrom(from);
+	    
+	}
+	@Then("Select destination Dallas, Texas, United States \\(DFW) option")
+	public void select_destination_dallas_texas_united_states_dfw_option(String to) {
+		searchflight.roundTripTo(to);
+	    
+	}
 
 	@Then("Close the Browser")
 	public void close_the_browser() {
@@ -51,5 +66,6 @@ public class SearchFlightsSteps{
 		base.tearDown();
 	    
 	}
+	
 
 }
