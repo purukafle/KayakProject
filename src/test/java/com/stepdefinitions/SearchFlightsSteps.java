@@ -5,9 +5,10 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.utilities.Base;
 import com.pages.SearchFlightPage;
+import com.utilities.Base;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -16,56 +17,71 @@ public class SearchFlightsSteps{
 	private WebDriver driver;
 	SearchFlightPage searchflight;
 	Base base;
-	
-	@When("user open chrome browser")
-	public void user_open_chrome_browser() {
-	    WebDriverManager.chromedriver().setup();
+	String url="https://www.kayak.com/";
+
+	@Given("I am on the Kayak website")
+	public void i_am_on_the_kayak_website() {
+		WebDriverManager.chromedriver().setup();
 	    driver=new ChromeDriver();
 	    driver.manage().window().maximize();
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-	    
+	    driver.get(url);
 	}
 
-	@Then("go to web url {string}")
-	public void go_to_web_url(String url) {
-		driver.get(url);
-		
-	   
+	@When("I enter {string} in the departure city field")
+	public void i_enter_in_the_departure_city_field(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Then("click on Flights")
-	public void click_on_flights() {
-		searchflight=new SearchFlightPage(driver);
-		searchflight.searchYourFlight();
-	    
-	}
-	@Then("select Trip option")
-	public void select_trip_option() {
-	    searchflight.selectFlightOption("");
-	}
-	@Then("select Trip {string}")
-	public void select_trip(String option)  {
-	    searchflight.roundTripFrom(option);
+	@When("I enter {string} in the destination city field")
+	public void i_enter_in_the_destination_city_field(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Then("Select Baltimore, Maryland, United States \\(BWI) option")
-	public void select_baltimore_maryland_united_states_bwi_option(String from) {
-		searchflight.roundTripFrom(from);
-	    
-	}
-	@Then("Select destination Dallas, Texas, United States \\(DFW) option")
-	public void select_destination_dallas_texas_united_states_dfw_option(String to) {
-		searchflight.roundTripTo(to);
-	    
+	@When("I select {string} as the trip type")
+	public void i_select_as_the_trip_type(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Then("Close the Browser")
-	public void close_the_browser() {
-		base=new Base(driver);
-		base.tearDown();
-	    
+	@When("I select {string} as the departure date")
+	public void i_select_as_the_departure_date(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
-	
+
+	@When("I click the search button")
+	public void i_click_the_search_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I should see search results for one-way flights")
+	public void i_should_see_search_results_for_one_way_flights() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("I have search results for one-way flights")
+	public void i_have_search_results_for_one_way_flights() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I filter by {string} flights")
+	public void i_filter_by_flights(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I should see only nonstop flight options")
+	public void i_should_see_only_nonstop_flight_options() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
 
 }
